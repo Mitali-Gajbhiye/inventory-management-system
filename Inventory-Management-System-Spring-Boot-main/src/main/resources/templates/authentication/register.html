@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<div th:replace="header :: myHeader"></div>
+    <title>Register - Inventory Management System</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<div th:replace="navbar :: myNavbar"></div>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">User Registration</h2>
+    
+    <form th:action="@{/register}" th:object="${user}" method="post" class="border p-4 rounded bg-light">
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Enter full name" required>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" th:field="*{userName}" class="form-control" placeholder="Choose a username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Enter password" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+        <!-- Redirect to Login -->
+        <div class="text-center mt-3">
+            Already have an account? <a th:href="@{/login}">Login here</a>
+        </div>
+    </form>
+</div>
+
+	<div th:replace="footer :: myFooter"></div>
+</body>
+</html>

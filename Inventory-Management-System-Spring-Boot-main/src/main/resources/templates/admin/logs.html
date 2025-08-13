@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Audit Logs - Inventory Management System</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/styles.css}">
+
+	</head>
+
+	<body>
+		<div th:replace="navbar :: myNavbar"></div>
+		<div class="container mt-4">
+			<h2 class="mb-4">Audit Logs</h2>
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Action</th>
+						<th>Username</th>
+						<th>Details</th>
+						<th>Timestamp</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="log : ${logs}">
+						<td th:text="${log.action}"></td>
+						<td th:text="${log.username}"></td>
+						<td th:text="${log.details}"></td>
+						<td th:text="${#temporals.format(log.timestamp, 'yyyy-MM-dd HH:mm:ss')}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<a th:href="@{/dashboard}" class="btn btn-secondary">Back to Dashboard</a>
+
+		</div>
+	</body>
+	<div th:replace="footer :: myFooter"></div>
+
+</html>

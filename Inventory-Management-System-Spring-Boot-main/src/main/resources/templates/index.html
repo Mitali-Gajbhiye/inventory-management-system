@@ -1,0 +1,65 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<div th:replace="header :: myHeader"></div>
+</head>
+<body class="sb-nav-fixed">
+		<div th:replace="navbar :: myNavbar"></div>
+		<div id="layoutSidenav">
+			<div th:replace="sidebar :: mySidebar"></div>
+			<!- Sidebar ends here 
+			<div id="layoutSidenav_content">
+				<main>
+					<div class="container-fluid">
+						<h1 class="mt-4">Inventory Management System</h1>
+						<ol class="breadcrumb mb-4">
+							<li class="breadcrumb-item active">Homepage</li>
+						</ol>
+					<section>
+						<h1> SIVS</h1>
+					</section>
+				
+			</main>
+		</div>
+	</div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<section>
+    <h1>Welcome to the Dashboard</h1>
+
+    <!-- For Admin -->
+    <div sec:authorize="hasRole('ADMIN')">
+        <h2>Admin Overview</h2>
+        <ul>
+            <li>Total Orders: <span th:text="${totalOrders}"></span></li>
+            <li>Total Users: <span th:text="${totalUsers}"></span></li>
+        </ul>
+        <a href="/admin/manage-products">Manage Products</a><br>
+        <a href="/admin/manage-users">Manage Users</a>
+    </div>
+
+    <!-- For User -->
+    <div sec:authorize="hasRole('ROLE')">
+        <h2>Your Orders</h2>
+        <ul>
+            <li th:each="order : ${myOrders}">
+                Order ID: <span th:text="${order.id}"></span> |
+                Status: <span th:text="${order.status}"></span>
+            </li>
+        </ul>
+        <a href="/shop">Continue Shopping</a>
+    </div>
+</section>
+
+</body>
+</html>

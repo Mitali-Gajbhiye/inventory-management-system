@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Inventory Management System</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+	<div th:replace="navbar :: myNavbar"></div>
+	
+<div class="container d-flex justify-content-center">
+	<div class="login-container">
+    <div class="login-box">
+        <h3 class="text-center mb-4">Login</h3>
+
+        <!-- Error message -->
+        <div th:if="${param.error}" class="alert alert-danger">
+            Invalid username or password.
+        </div>
+
+        <!-- Logout message -->
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out successfully.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" placeholder="Enter username" required />
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" placeholder="Enter password" required />
+            </div>
+
+            <!-- Login Button -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+
+            <!-- Redirect to Register -->
+            <div class="text-center mt-3">
+                Don't have an account? <a th:href="@{/register}">Register here</a>
+            </div>
+        </form>
+    </div>
+	</div>
+</div>
+</body>
+<div th:replace="footer :: myFooter"></div>
+</html>
