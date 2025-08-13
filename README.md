@@ -1,11 +1,11 @@
-# 📦 Inventory Management System
+#  Inventory Management System
 
 A **Spring Boot**-based Inventory Management System with **role-based access control** using Spring Security and JWT Authentication.  
 It allows **Admins** to manage products, update stock, and monitor inventory, while **Users** can view available products.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Role-based Authentication** (`USER` & `ADMIN`)
 - **Admin Features:**
@@ -14,13 +14,12 @@ It allows **Admins** to manage products, update stock, and monitor inventory, wh
   - View inventory reports
 - **User Features:**
   - View available products
-  - Search products
 - **Database Integration** with MySQL using Hibernate/JPA
 - **Secure Authentication** using Spring Security
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Backend:** Spring Boot, Spring MVC, Hibernate/JPA
 - **Security:** Spring Security (Role-based access)
@@ -31,5 +30,5 @@ It allows **Admins** to manage products, update stock, and monitor inventory, wh
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
